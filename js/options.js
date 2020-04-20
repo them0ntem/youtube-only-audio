@@ -8,13 +8,13 @@ if (disableVideoTextCheckbox) {
 
   // Set states
   chrome.storage.local.get('disable_video_text', function(values) {
-    disableVideoTextCheckbox.checked = (values.disable_video_text ? true : false);
+    disableVideoTextCheckbox.checked =
+        (values.disable_video_text ? true : false);
   });
 }
-  
+
 // Save options as they're modified
 function optionChanged() {
-  chrome.storage.local.set({
-    "disable_video_text": disableVideoTextCheckbox.checked
-  });
+  chrome.storage.local.set(
+      {"disable_video_text" : disableVideoTextCheckbox.checked});
 }
