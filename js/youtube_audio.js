@@ -11,7 +11,6 @@ var makeSetAudioURL = function(videoElement, url) {
 };
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  console.log(request);
   if (request.action == "curr_time") {
     var ytPlayer = document.getElementsByClassName("video-stream")[0];
     var time = ytPlayer.currentTime;
