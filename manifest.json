@@ -1,6 +1,6 @@
 {
   "name": "Youtube Audio",
-  "version": "2020.04.1",
+  "version": "1.0.0.0",
   "manifest_version": 2,
   "description": "Stream only Audio on Youtube",
   "homepage_url": "https://github.com/themontem/youtube-audio",
