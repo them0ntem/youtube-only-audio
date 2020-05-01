@@ -7,7 +7,7 @@
     top: 50%;
     transform: translateY(-50%);
     height: 50%;
-    box-shadow: 0 1px 50px 0 rgba(0,0,0,.3);
+    box-shadow: 0 1px 50px 0 rgba(0, 0, 0, .3);
     font-size: 15px;
     font-weight: 600;
     pointer-events: none;
