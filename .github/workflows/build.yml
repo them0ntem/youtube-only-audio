@@ -1,0 +1,27 @@
+name: "Build"
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  build:
+    name: "Build"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v1
+
+      - name: "web-ext build"
+        id: web-ext-build
+        uses: kewisch/action-web-ext@v1
+        with:
+          cmd: build
+          source: "./"
+
+      - name: "Upload Unsigned Artifact"
+        uses: actions/upload-artifact@master
+        with:
+          name: youtube-only-audio
+          path: ${{ steps.web-ext-build.outputs.target }}
