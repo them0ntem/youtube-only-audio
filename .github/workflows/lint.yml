@@ -1,8 +1,9 @@
-name: "Beta Release"
+name: "Linting"
 on:
   push:
     branches:
-      - add-action-support
+      - master
+  pull_request:
 
 jobs:
   lint:
@@ -11,7 +12,7 @@ jobs:
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
-      
+
       - name: "web-ext lint"
         uses: kewisch/action-web-ext@v1
         with:

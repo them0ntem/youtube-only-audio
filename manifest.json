@@ -1,6 +1,6 @@
 {
   "name": "Youtube Audio",
-  "version": "1.0.0.0",
+  "version": "2.0.0.0",
   "manifest_version": 2,
   "description": "Stream only Audio on Youtube",
   "homepage_url": "https://github.com/themontem/youtube-audio",
@@ -50,5 +50,10 @@
     "show_matches": [
       "*://*.youtube.com/*"
     ]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{db87a5ad-bc92-4840-b7ca-af263c05c90e}"
+    }
   }
 }
