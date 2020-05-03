@@ -20,8 +20,8 @@ jobs:
           cmd: build
           source: "./"
 
-      - name: "Upload Artifact"
+      - name: "Upload Unsigned Artifact"
         uses: actions/upload-artifact@master
         with:
-          name: youtube-only-audio.xpi
+          name: youtube-only-audio
           path: ${{ steps.web-ext-build.outputs.target }}
