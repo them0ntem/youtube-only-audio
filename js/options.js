@@ -16,5 +16,5 @@ if (disableVideoTextCheckbox) {
 function optionChanged() {
     browser.storage.local.set(
         {"disable_video_text": disableVideoTextCheckbox.checked}
-        ).then(() => undefined);
+    ).then(() => undefined);
 }

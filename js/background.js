@@ -41,14 +41,10 @@ const reloadTab = tab => {
 const addListener = () => {
     browser.webRequest.onBeforeRequest.addListener(
         processRequest,
-        {urls: ["<all_urls>"]},
+        {urls: ["*://*.googlevideo.com/*",]},
         ["blocking"],
     );
 };
-
-function removeListener() {
-    browser.webRequest.onBeforeRequest.removeListener(processRequest);
-}
 
 const processRequest = details => {
     if (!tabIds.has(details.tabId)) {
@@ -59,7 +55,6 @@ const processRequest = details => {
         let parametersToBeRemoved = ['range', 'rn', 'rbuf'];
         let audioURL = removeURLParameters(details.url, parametersToBeRemoved);
         browser.tabs.sendMessage(details.tabId, {url: audioURL}).then(() => undefined);
-        removeListener();
     }
 };
 
@@ -97,7 +92,9 @@ browser.pageAction.onClicked.addListener(tab => {
 browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     if (changeInfo.status === "loading" && tabIds.get(tabId)) {
         setTitleAndIcon(tabId, true);
-        addListener();
+        if (!browser.webRequest.onBeforeRequest.hasListener(processRequest)) {
+            addListener();
+        }
     }
 }, {
     properties: ["status"],
