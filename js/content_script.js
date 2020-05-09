@@ -1,6 +1,12 @@
 const makeSetAudioURL = (videoElement, url) => {
     if (videoElement.src !== url) {
         videoElement.src = url;
+        if (videoElement.paused) {
+            // Play video, when the video player is paused. This shouldn't trigger autoplay for a new tab, as the
+            // extension is disabled by default for a new page and if a user has given `Autoplay` permission to
+            // youtube domain, the extension will call play on the video player.
+            videoElement.play();
+        }
     }
 };
 
